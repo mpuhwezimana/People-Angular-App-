@@ -1,20 +1,18 @@
 <div ng-app="app">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div ng-controller="peopleCtrl">
+<h1>People List</h1>
+<ul>
+  <li ng-repeat="person in people track by $index" ng-click="shuffleBio($index)">
+    <p>Name: {{person.name}} <button ng-click="removePerson($index)"> Remove person</button></p>
+    <p ng-if="person.bioShow === false">Bio: {{person.bio}}</p>
+  </li>
+</ul>
+<h2>Number of My Friends: {{countPeople}}</h2>
+  <div>
+  Add a Person:
+    <p>Name: <input ng-model="newPersonName"></p>
+    <p>Bio: <input ng-model="newPersonBio"></p>
+    <button ng-click="addPerson(newPersonName, newPersonBio)"> Add Person</button>
+  </div>
 </div>
+</div> 
